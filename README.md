@@ -1,10 +1,10 @@
-# expense_tracker
+# Expense Tracker App (https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps)
 
-A new Flutter project.
+A sample tutorial project from https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps, enhanced with personal comments etc.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter application, with slightly enhanced basic topics.
 
 A few resources to get you started if this is your first Flutter project:
 
