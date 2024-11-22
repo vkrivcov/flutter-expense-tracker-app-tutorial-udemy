@@ -13,7 +13,7 @@ class ExpensesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // when you have a list of elements that can grow very large (e.g. 100s) ->
-    // Column is not ideal (which would he typically chosen) because Column
+    // Column is not ideal (which would be typically chosen) because Column
     // so not all of them will be visible (invisible items are useless and
     // will hit performance)
     // ListView -> scrollable list (but using builder on how to create it) ->
@@ -29,6 +29,7 @@ class ExpensesList extends StatelessWidget {
     return ListView.builder(
       itemCount: expenses.length,
 
+      // TODO: stopped here
       // Dismissible is a helper method that could be wrapped around the element
       // that could be removed i.e. swiped away (its also a very common pattern
       // IMPORTANT: for vast majority of widgets key is not needed (key is

@@ -5,16 +5,24 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 import 'package:expense_tracker/widgets/expenses.dart';
 
+// factory constructor used to create a Material Design color scheme based on
+// a single seed color. It generates a color palette that adheres to the
+// Material Design 3 (M3) guidelines. This helps developers create cohesive and
+// visually appealing themes for their applications with minimal effort, as
+// it automatically handles the derivation of primary, secondary, tertiary,
+// and other colors based on the provided seed color.
 // RECOMMEND: automatically create range of colours based on one base
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
 );
 
-// setting for dark colour scheme
+// Seed setting that is apparently (need to check) optimised for for dark
+// colour scheme
 var kDarkColorScheme = ColorScheme.fromSeed(
     // optimised for dark mode
     brightness: Brightness.dark,
-    seedColor: const Color.fromARGB(255, 5, 99, 125));
+    seedColor: const Color.fromARGB(255, 5, 99, 125)
+);
 
 void main() {
   // IMPORTANT: restrict to portrait mode only if we want to
@@ -24,7 +32,8 @@ void main() {
   runApp(
     MaterialApp(
       // same as below -> here we are specifying that theme colour range for
-      // dark schema (that is also very popular)
+      // dark scheme (that is also very popular)
+      // TODO: change emulator settings and play around with dark mode
       darkTheme: ThemeData.dark().copyWith(
         colorScheme: kDarkColorScheme,
 
@@ -32,7 +41,7 @@ void main() {
         // in the next
         cardTheme: const CardTheme().copyWith(
           // IMPORTANT: is is also important to change the dark scheme
-          // int other elements too
+          // in other elements too
           color: kDarkColorScheme.secondaryContainer,
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),

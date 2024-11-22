@@ -77,7 +77,8 @@ class _Expenses extends State<Expenses> {
         // other settings control duration of for how long its being pressed etc.
         SnackBar(
             content: const Text('Expense deleted.'),
-            duration: const Duration(seconds: 3),
+            duration: const Duration(seconds: 5),
+
             // this is essentially an action button in the snack bar that we can
             // control and assign any actions to it
             action: SnackBarAction(
@@ -87,7 +88,9 @@ class _Expenses extends State<Expenses> {
                   _registeredExpenses.insert(expenseIndex, expense);
                 });
               },
-            )));
+            )
+        )
+    );
   }
 
   @override
@@ -122,6 +125,7 @@ class _Expenses extends State<Expenses> {
         ],
       ),
 
+      // NOTE: dealing with different screen sizes and rotates
       body: width < 600
           ? Column(
               children: [
@@ -136,12 +140,13 @@ class _Expenses extends State<Expenses> {
             )
           : Row(
               children: [
-                // NOTE: for responsive add also wrap up a chard (that
+                // NOTE: for responsive add also wrap up a chart (that
                 // is set up to take double.infinity as a width inside it) ->
                 // here we are restricting it to take as much space that is only
                 // detected by its parent)
-                // IMPORTANT: is a used solution when widgets don;t work well
+                // IMPORTANT: is a used solution when widgets don't work well
                 // together
+                // Chart(expenses: _registeredExpenses),
                 Expanded(child: Chart(expenses: _registeredExpenses)),
 
                 // IMPORTANT: expanded is needed when we are dealing with lists within
