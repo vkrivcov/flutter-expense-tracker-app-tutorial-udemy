@@ -9,9 +9,14 @@ class ExpenseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // mainly used for styling
+    // NOTE: container like widget that provides a material design card UI to
+    // easier group some of the elements together
+    // NOTE: Card is a widget that provides a nice shadow and rounded corners
+    // but its slightly heavier than Container (which is a more basic widget)
     return Card(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+
         // we only have 2 or so rows here hence no need for ListView (fixed)
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

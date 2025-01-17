@@ -16,15 +16,20 @@ var kDarkColorScheme = ColorScheme.fromSeed(
     brightness: Brightness.dark,
     seedColor: const Color.fromARGB(255, 5, 99, 125));
 
+
+// TODO: primaryContainer, onPrimaryContainer, secondaryContainer, onSecondaryContainer????
+// TODO: need to watch a lesson on theming to understand fully what is going on
 void main() {
   // IMPORTANT: restrict to portrait mode only if we want to
   // WidgetsFlutterBinding.ensureInitialized();
   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
   //   (fn) {
+          // runApp(MyApp());
+  //}
   runApp(
     MaterialApp(
       // same as below -> here we are specifying that theme colour range for
-      // dark schema (that is also very popular)
+      // dark scheme (that is also very popular)
       darkTheme: ThemeData.dark().copyWith(
         colorScheme: kDarkColorScheme,
 

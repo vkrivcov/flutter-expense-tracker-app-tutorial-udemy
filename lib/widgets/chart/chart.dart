@@ -8,6 +8,7 @@ class Chart extends StatelessWidget {
 
   final List<Expense> expenses;
 
+  // TODO: what is for Category here?
   List<ExpenseBucket> get buckets {
     return [
       ExpenseBucket.forCategory(expenses, Category.food),

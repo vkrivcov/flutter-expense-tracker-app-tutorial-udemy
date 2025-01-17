@@ -21,7 +21,7 @@ class _NewExpense extends State<NewExpense> {
   //   _enteredTitle = inoutValue;
   // }
 
-  // another approach => optimised user inout where flutter does all the heavy
+  // another approach => optimised user input where flutter does all the heavy
   // lifting
   // IMPORTANT: that controller must be killed and removed from memory as it
   // will keep living even after Widget is being closed!
@@ -120,10 +120,19 @@ class _NewExpense extends State<NewExpense> {
     // its getting constrains of a parent instead of just available sizes
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
 
+    // layout that automatically adjusts to available space
     // constrains object tell what constrains are applied by a parent object
+    // NOTE: it only take care of the width and height of the parent object and
+    // not the actual size of the screen
     return LayoutBuilder(builder: (ctx, constrains) {
+      // can use MediaQuery but instead we will use constrains -> in this case
+      // depending the layout orientation we will get different values and use
+      // then to render the layout
       final width = constrains.maxWidth;
 
+      // NOTE: a powerful and lightweight way to fill in all the space in this case,
+      // in contrast to we can use it instead of a Container when only size
+      // constrains are needed
       // we want to start with padding since don't want to sit on the edges of
       // that modal sheet
       return SizedBox(
@@ -131,7 +140,8 @@ class _NewExpense extends State<NewExpense> {
         height: double.infinity,
 
         // wrap up so we can actually scroll it so we can reach to other elements
-        // when keyboard pops up
+        // when keyboard pops up as it will overlay everything and we wont be
+        // able to see the rest of the elements
         child: SingleChildScrollView(
           child: Padding(
             // set custom passing from Left, Top, Right, Bottom
@@ -140,7 +150,7 @@ class _NewExpense extends State<NewExpense> {
             // there will be multiple elements one beside another one hence Column
             child: Column(
               children: [
-                // special syntax of using if else inside widget (no curly
+                // IMPORTANT: special syntax of using if else inside widget (no curly
                 // braces)
                 if (width >= 600)
                   Row(
@@ -216,7 +226,7 @@ class _NewExpense extends State<NewExpense> {
                   children: [
                     // NOTE: in not put inside Expanded then will have sizing issues
                     // as we've seen before
-                    // REMEMBER: raw wants to take as much space as possible and Row
+                    // REMEMBER: Row wants to take as much space as possible and Row
                     // would not restrict it
                     Expanded(
                       child: TextField(

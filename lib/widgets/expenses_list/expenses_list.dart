@@ -43,12 +43,17 @@ class ExpensesList extends StatelessWidget {
           color: Theme.of(context).colorScheme.error.withOpacity(0.65),
 
           // fine tuning from original Theme
-          // NOTE: in the below reference we used to point to default schema AND
+          // NOTE: in the below reference we used to point to default scheme AND
           // if we would switch to Dark theme that would not be available -> and
           // therefore crash the app with null pointer (reasons: in Dark mode its
           // actually null)
           // margin:EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal),
-          margin:EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal),
+          // NOTE: ! refers to the fact that it could be null and in this case
+          // this setting sets the background colour (more with margin) to the
+          // "inside" of the card instead of the whole screen (which is an
+          // interesting setting)
+          margin: EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal),
+          //margin: EdgeInsets.zero,
         ),
 
         // we actually need to do some action when the expense is being removed

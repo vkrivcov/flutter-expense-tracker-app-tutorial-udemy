@@ -40,7 +40,9 @@ class _Expenses extends State<Expenses> {
       useSafeArea: true,
 
       // by setting it -> modal will take ALL available space so keyboard
-      // inputs wont obscure the view of edit fields
+      // inputs wont obscure the view of edit fields -> if not set it will take
+      // only as much space as it needs (in this example something like a half
+      // // of the screen)
       isScrollControlled: true,
       context: context,
       builder: (ctx) => NewExpense(addExpense: _addExpense),
@@ -53,7 +55,7 @@ class _Expenses extends State<Expenses> {
     });
   }
 
-  // functionality is needed to actual remove an expanse from the list of
+  // functionality is needed to actual remove an expense from the list of
   // expenses when we actually swipe the actual expense card view
   void _removeExpense(Expense expense) {
     final expenseIndex = _registeredExpenses.indexOf(expense);
@@ -78,6 +80,7 @@ class _Expenses extends State<Expenses> {
         SnackBar(
             content: const Text('Expense deleted.'),
             duration: const Duration(seconds: 3),
+
             // this is essentially an action button in the snack bar that we can
             // control and assign any actions to it
             action: SnackBarAction(
@@ -92,13 +95,14 @@ class _Expenses extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    // get the width of the screen
     final width = MediaQuery.of(context).size.width;
 
     Widget mainContent = const Center(
       child: Text('No expenses found. Start adding some!'),
     );
 
-    // if list is empty not empty then show it, otherwise show default widget
+    // if list is not empty then show it, otherwise show default widget
     // above that would be set to the main content already
     if (_registeredExpenses.isNotEmpty) {
       mainContent = ExpensesList(
@@ -136,11 +140,11 @@ class _Expenses extends State<Expenses> {
             )
           : Row(
               children: [
-                // NOTE: for responsive add also wrap up a chard (that
+                // NOTE: for responsive add also wrap up a chart (that
                 // is set up to take double.infinity as a width inside it) ->
                 // here we are restricting it to take as much space that is only
                 // detected by its parent)
-                // IMPORTANT: is a used solution when widgets don;t work well
+                // IMPORTANT: is a used solution when widgets don't work well
                 // together
                 Expanded(child: Chart(expenses: _registeredExpenses)),
 

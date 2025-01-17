@@ -46,6 +46,7 @@ class ExpenseBucket {
     required this.expenses
 });
 
+  // TODO: understand output here + what is going on?
   // extra utility constructor (additional constructor)
   // : is an initializer list that would precalculate whatever we need
   // NOTE: alternatively I am sure its possible to get list of expenses for a
